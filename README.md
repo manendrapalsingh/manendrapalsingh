@@ -90,9 +90,9 @@
 
 <p align="center">
 
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=manendrapalsingh&show_icons=true&count_private=true&include_all_commits=true&theme=default"/>
+  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=manendrapalsingh&show_icons=true&count_private=true&include_all_commits=true&theme=default" alt="GitHub Stats" />
 
-  <img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=manendrapalsingh&layout=compact&theme=default"/>
+  <img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=manendrapalsingh&layout=compact&theme=default" alt="Top Languages" />
 
 </p>
 
@@ -120,7 +120,7 @@
 
   <img height="25" alt="Forks" src="https://img.shields.io/github/forks/manendrapalsingh/manendrapalsingh?style=flat&labelColor=343b41"/>
 
-  <img height="25" alt="Visitors" src="https://visitcount.itsvg.in/api?id=manendrapalsingh&icon=0&color=0"/>
+  <img height="25" alt="Visitors" src="https://visitor-badge.laobi.icu/badge?page_id=manendrapalsingh.manendrapalsingh&left_color=blue&right_color=green"/>
 
   <img height="25" alt="Open Source Love" src="https://badges.frapsoft.com/os/v2/open-source.svg?v=103"/>
 
