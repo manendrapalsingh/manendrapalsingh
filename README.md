@@ -22,23 +22,20 @@
 
 <p align="center">
 
-
+  <a href="https://github.com/manendrapalsingh" target="_blank">
+    <img alt="GitHub" height="25" src="https://img.shields.io/badge/GitHub-%2312100E.svg?logo=Github&logoColor=white"/>
+  </a>
+  
   <a href="https://www.linkedin.com/in/manendra-pal-singh/" target="_blank">
-
     <img alt="LinkedIn" height="25" src="https://img.shields.io/badge/LinkedIn-%230A66C2.svg?logo=linkedin&logoColor=white"/>
-
   </a>
 
   <a href="mailto:manendra16200singh@gmail.com" target="_blank">
-
     <img alt="Gmail" height="25" src="https://img.shields.io/badge/Gmail-D14836?logo=Gmail&logoColor=white"/>
-
   </a>
 
   <a href="https://hub.docker.com/u/manendrapalsingh" target="_blank">
-
     <img alt="Docker Hub" height="25" src="https://img.shields.io/badge/Docker_Hub-2496ED?logo=docker&logoColor=white"/>
-
   </a>
 
 </p>
