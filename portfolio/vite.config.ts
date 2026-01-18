@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/manendrapalsingh/',
   build: {
-    outDir: '../doc',
+    outDir: '../docs',
   },
   preview: {
     port: 4173,
