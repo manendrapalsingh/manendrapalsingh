@@ -7,6 +7,7 @@ export default defineConfig({
   base: '/manendrapalsingh/',
   build: {
     outDir: '../docs',
+    emptyOutDir: true,
   },
   preview: {
     port: 4173,

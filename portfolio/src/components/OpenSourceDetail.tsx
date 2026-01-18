@@ -1,9 +1,12 @@
 import { Box, Container, Typography, Paper, Chip, Button, Divider, Grid, Link as MuiLink } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LaunchIcon from '@mui/icons-material/Launch';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { openSourceContributions } from '../data/openSource';
+import { getTechIcon } from './TechStackIcons';
+import { getTechColor } from '../utils/techColors';
 
 const OpenSourceDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -57,16 +60,29 @@ const OpenSourceDetail = () => {
 
           <Box sx={{ display: 'flex', gap: 2, mb: 4, flexWrap: 'wrap' }}>
             <Button
-              variant="contained"
+              variant="outlined"
               href={contribution.repository}
               target="_blank"
               rel="noopener noreferrer"
               endIcon={<LaunchIcon />}
               sx={{
-                backgroundColor: 'secondary.main',
+                borderColor: 'white',
+                color: 'white',
+                borderWidth: 2,
+                backgroundColor: 'transparent',
+                fontWeight: 600,
                 '&:hover': {
-                  backgroundColor: 'secondary.dark',
+                  borderColor: 'primary.main',
+                  backgroundColor: 'primary.main',
+                  color: 'white',
+                  transform: 'translateY(-2px)',
                 },
+                '&:focus': {
+                  borderColor: 'primary.main',
+                  backgroundColor: 'primary.main',
+                  color: 'white',
+                },
+                transition: 'all 0.3s ease',
               }}
             >
               View Repository
@@ -195,21 +211,42 @@ const OpenSourceDetail = () => {
             Technologies Used
           </Typography>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
-            {contribution.technologies.map((tech) => (
-              <Chip
-                key={tech}
-                label={tech}
-                sx={{
-                  backgroundColor: 'secondary.main',
-                  color: 'white',
-                  fontSize: '0.9rem',
-                  height: 32,
-                  '&:hover': {
-                    backgroundColor: 'secondary.dark',
-                  },
-                }}
-              />
-            ))}
+            {contribution.technologies.map((tech) => {
+              const icon = getTechIcon(tech);
+              const colors = getTechColor(tech);
+              return (
+                <motion.div key={tech} whileHover={{ scale: 1.05, y: -2 }}>
+                  <Chip
+                    icon={icon || undefined}
+                    label={tech}
+                    sx={{
+                      fontSize: '0.875rem',
+                      fontWeight: 500,
+                      height: 28,
+                      backgroundColor: colors.bg,
+                      color: colors.text,
+                      borderRadius: '4px',
+                      transition: 'all 0.2s ease',
+                      '& .MuiChip-icon': {
+                        color: colors.icon,
+                        fontSize: '16px',
+                        marginLeft: '6px',
+                        marginRight: '4px',
+                      },
+                      '& .MuiChip-label': {
+                        paddingLeft: icon ? '0px' : '8px',
+                        paddingRight: '8px',
+                        fontSize: '0.875rem',
+                      },
+                      '&:hover': {
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                      },
+                    }}
+                  />
+                </motion.div>
+              );
+            })}
           </Box>
         </Paper>
       </Container>

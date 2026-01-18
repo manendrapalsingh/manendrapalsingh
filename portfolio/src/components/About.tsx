@@ -80,7 +80,7 @@ const About = () => {
                     <Button
                       variant="outlined"
                       startIcon={<DownloadIcon />}
-                      href="/resume.pdf"
+                      href="/manendrapalsingh/resume.pdf"
                       target="_blank"
                       sx={{
                         borderColor: 'white',
