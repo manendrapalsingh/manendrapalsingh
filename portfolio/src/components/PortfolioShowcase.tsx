@@ -38,7 +38,7 @@ function TabPanel(props: TabPanelProps) {
 const PortfolioShowcase = () => {
   // Projects tab hidden - set to true when ready to show projects
   const SHOW_PROJECTS_TAB = false;
-  const [value, setValue] = useState(SHOW_PROJECTS_TAB ? 0 : 1);
+  const [value, setValue] = useState(0);
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -300,19 +300,57 @@ const PortfolioShowcase = () => {
                         <Button
                           component={Link}
                           to={`/manendrapalsingh/opensource/${contribution.id}`}
+                          variant="outlined"
                           size="small"
                           endIcon={<ArrowForwardIcon />}
-                          sx={{ color: 'primary.main', fontWeight: 600 }}
+                          sx={{
+                            borderColor: 'white',
+                            color: 'white',
+                            borderWidth: 2,
+                            backgroundColor: 'transparent',
+                            fontWeight: 600,
+                            '&:hover': {
+                              backgroundColor: 'primary.main',
+                              color: 'white',
+                              borderColor: 'primary.main',
+                              transform: 'translateY(-2px)',
+                            },
+                            '&:focus': {
+                              backgroundColor: 'primary.main',
+                              color: 'white',
+                              borderColor: 'primary.main',
+                            },
+                            transition: 'all 0.3s ease',
+                          }}
                         >
                           Details
                         </Button>
                         <Button
+                          variant="outlined"
                           size="small"
                           href={contribution.repository}
                           target="_blank"
                           rel="noopener noreferrer"
                           endIcon={<LaunchIcon />}
-                          sx={{ color: 'primary.main' }}
+                          sx={{
+                            borderColor: 'white',
+                            color: 'white',
+                            borderWidth: 2,
+                            backgroundColor: 'transparent',
+                            fontWeight: 600,
+                            '&:hover': {
+                              borderColor: 'primary.main',
+                              backgroundColor: 'primary.main',
+                              color: 'white',
+                              transform: 'translateY(-2px)',
+                            },
+                            '&:focus': {
+                              borderColor: 'primary.main',
+                              backgroundColor: 'primary.main',
+                              color: 'white',
+                            },
+                            transition: 'all 0.3s ease',
+                          }}
                         >
                           Repository
                         </Button>

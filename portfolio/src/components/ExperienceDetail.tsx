@@ -40,7 +40,7 @@ const ExperienceDetail = () => {
       <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
         <Button
           startIcon={<ArrowBackIcon />}
-          onClick={() => navigate('/manendrapalsingh#experience')}
+          onClick={() => navigate('/manendrapalsingh')}
           sx={{ mb: 4 }}
         >
           Back to Experience

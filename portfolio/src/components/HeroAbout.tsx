@@ -203,7 +203,7 @@ const HeroAbout = () => {
                     variant="outlined"
                     size="large"
                     startIcon={<DownloadIcon />}
-                    href="/resume.pdf"
+                    href="/manendrapalsingh/resume.pdf"
                     target="_blank"
                     sx={{
                       px: { xs: 3, sm: 4 },
