@@ -4,9 +4,9 @@
 </h1>
 
 <p align="center">
-  I'm <b>Manendra Pal Singh</b> — <b>Software Engineer – Consultant (Deployed at NPCI) @ CoffeeBeans Consulting LLP</b> 💻 <br/>
-  Full-stack engineer experienced in building fast, scalable, production-grade systems. Comfortable owning features end-to-end — from database design and backend APIs to responsive UIs. Pragmatic, product-minded, and effective in high-velocity environments. <br/><br/>
-  Currently contributing to the development of an <b>open, decentralized EV charging network</b> built on the <b>Beckn Protocol</b>, enabling interoperability across charge point operators, service providers, and ecosystem participants at a national scale. <br/><br/>
+  I'm <b>Manendra Pal Singh</b> — <b>Senior Software Developer at Alpheya</b> 💻 <br/>
+  Backend and platform engineer with 4+ years of experience building scalable, production-grade systems across wealth technology, digital payments, mobility, lending, and decentralized infrastructure. I work across product engineering, cloud platforms, reliability, and AI-assisted operational tooling. <br/><br/>
+  Currently building and operating a <b>multi-tenant wealth technology platform</b> using <b>Go, TypeScript, Azure, Kubernetes, Terraform, Flux, and GitOps</b>, with a focus on availability, disaster recovery, release automation, and proactive incident response. <br/><br/>
   Outside of coding, I enjoy exploring new tech, gaming 🎮, and learning something new every day 👨🏻‍💻.
 </p>
 
@@ -27,32 +27,13 @@
 
 ---
 
-## Resume
-
-The reusable LaTeX resume project is located in [`resume-latex/`](resume-latex/).
-
-From the repository root, install [Tectonic](https://tectonic-typesetting.github.io/) and run:
-
-```bash
-make
-```
-
-The generated PDF will be available at:
-
-```text
-resume-latex/output/Manendra_Pal_Singh_Resume.pdf
-```
-
-For resume source files, editing instructions, and the directory structure, see the [resume README](resume-latex/README.md).
-
----
-
 <h2 align="center">🛠 Currently Working On</h2>
 
 <p align="center">
-  • National-scale EV charging interoperability using the Beckn Protocol <br/>
-  • Event-driven microservices using Kafka & Redis <br/>
-  • Kubernetes-based deployments with production-grade monitoring and observability
+  • Multi-tenant, cloud-native wealth technology services <br/>
+  • AI-assisted release management using Azure AI Foundry, Helm, and Terraform <br/>
+  • Proactive SRE automation using Datadog signals, service telemetry, and operational runbooks <br/>
+  • Multi-zone reliability, disaster recovery, and GitOps delivery on Azure Kubernetes Service
 </p>
 
 ---
@@ -97,8 +78,23 @@ For resume source files, editing instructions, and the directory structure, see 
   <img src="https://img.shields.io/badge/Docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white"/>
   <img src="https://img.shields.io/badge/Kubernetes-326ce5?style=for-the-badge&logo=kubernetes&logoColor=white"/>
   <img src="https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Flux-5468FF?style=for-the-badge&logo=flux&logoColor=white"/>
   <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+  <img src="https://img.shields.io/badge/GCP-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Datadog-632CA6?style=for-the-badge&logo=datadog&logoColor=white"/>
   <img src="https://img.shields.io/badge/CI/CD-2088FF?style=for-the-badge&logo=githubactions&logoColor=white"/>
+</p>
+
+<h3 align="center">AI Engineering & Automation</h3>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Azure_AI_Foundry-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+  <img src="https://img.shields.io/badge/AI_Agents-111827?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Runbook_Automation-0F766E?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/OpenFGA-6D28D9?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/RisingWave-00BFA5?style=for-the-badge"/>
 </p>
 
 ---
