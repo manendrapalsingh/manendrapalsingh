@@ -53,13 +53,13 @@ export const staggerItem = {
 export const whileInViewFadeInUp = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: false, amount: 0.3, margin: '-50px 0px -50px 0px' },
+  viewport: { once: true, amount: 0.15, margin: '-30px 0px -30px 0px' },
   transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
 };
 
 export const whileInViewFadeIn = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
-  viewport: { once: false, amount: 0.3, margin: '-50px 0px -50px 0px' },
+  viewport: { once: true, amount: 0.15, margin: '-30px 0px -30px 0px' },
   transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
 };

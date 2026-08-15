@@ -9,39 +9,68 @@ const AnimatedBackdrop = () => (
       zIndex: -1,
       overflow: 'hidden',
       pointerEvents: 'none',
-      background: '#07111f',
-      '&::before, &::after': {
-        content: '""',
-        position: 'absolute',
-        width: { xs: 360, md: 680 },
-        height: { xs: 360, md: 680 },
-        borderRadius: '50%',
-        filter: 'blur(90px)',
-        opacity: 0.16,
-        animation: 'auroraDrift 18s ease-in-out infinite alternate',
-      },
-      '&::before': {
-        top: '-18%',
-        right: '-12%',
-        background: '#0ea5e9',
-      },
-      '&::after': {
-        bottom: '-28%',
-        left: '-14%',
-        background: '#14b8a6',
-        animationDelay: '-8s',
-      },
-      '@keyframes auroraDrift': {
-        '0%': { transform: 'translate3d(-5%, -3%, 0) scale(0.92)' },
-        '55%': { transform: 'translate3d(8%, 10%, 0) scale(1.08)' },
-        '100%': { transform: 'translate3d(-2%, 18%, 0) scale(0.98)' },
-      },
-      '@media (prefers-reduced-motion: reduce)': {
-        '&::before, &::after': { animation: 'none' },
-      },
+      backgroundColor: '#07111f',
+      backgroundImage: 'linear-gradient(rgba(56,189,248,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.035) 1px, transparent 1px)',
+      backgroundSize: '56px 56px',
     }}
   >
-    {Array.from({ length: 12 }).map((_, index) => (
+    <Box
+      sx={{
+        position: 'absolute',
+        width: '70vw',
+        height: '140vh',
+        left: '-55vw',
+        top: '-20vh',
+        background: 'linear-gradient(90deg, transparent, rgba(14,165,233,.09), rgba(94,234,212,.05), transparent)',
+        transform: 'rotate(-16deg) translate3d(0, 0, 0)',
+        willChange: 'transform, opacity',
+        animation: 'ambientSweep 20s ease-in-out infinite',
+        '@keyframes ambientSweep': {
+          '0%, 100%': { transform: 'rotate(-16deg) translate3d(0, 0, 0)', opacity: 0.35 },
+          '50%': { transform: 'rotate(-16deg) translate3d(185vw, 0, 0)', opacity: 0.85 },
+        },
+        '@media (prefers-reduced-motion: reduce)': { animation: 'none', opacity: 0.2 },
+      }}
+    />
+    <Box
+      sx={{
+        position: 'absolute',
+        width: { xs: 320, md: 520 },
+        height: { xs: 320, md: 520 },
+        right: { xs: '-45%', md: '-10%' },
+        top: '18%',
+        borderRadius: '50%',
+        border: '1px solid rgba(56,189,248,.12)',
+        boxShadow: 'inset 0 0 80px rgba(14,165,233,.035), 0 0 80px rgba(14,165,233,.025)',
+        willChange: 'transform, opacity',
+        animation: 'orbreathe 12s ease-in-out infinite',
+        '@keyframes orbreathe': {
+          '0%, 100%': { transform: 'scale(.88)', opacity: 0.3 },
+          '50%': { transform: 'scale(1.08)', opacity: 0.72 },
+        },
+        '@media (prefers-reduced-motion: reduce)': { animation: 'none', opacity: 0.25 },
+      }}
+    />
+    <Box
+      sx={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        height: 1,
+        background: 'linear-gradient(90deg, transparent 4%, rgba(94,234,212,.45) 45%, rgba(56,189,248,.28) 65%, transparent 96%)',
+        boxShadow: '0 0 20px rgba(94,234,212,.2)',
+        willChange: 'transform, opacity',
+        animation: 'globalScan 11s linear infinite',
+        '@keyframes globalScan': {
+          '0%': { transform: 'translate3d(0, -10vh, 0)', opacity: 0 },
+          '12%, 85%': { opacity: 0.5 },
+          '100%': { transform: 'translate3d(0, 110vh, 0)', opacity: 0 },
+        },
+        '@media (prefers-reduced-motion: reduce)': { animation: 'none', display: 'none' },
+      }}
+    />
+    {Array.from({ length: 6 }).map((_, index) => (
       <Box
         key={index}
         sx={{

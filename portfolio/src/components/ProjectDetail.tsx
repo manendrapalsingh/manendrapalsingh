@@ -13,7 +13,7 @@ const ProjectDetail = () => {
     return (
       <Box sx={{ py: 10, textAlign: 'center' }}>
         <Typography variant="h4">Project not found</Typography>
-        <Button onClick={() => navigate('/manendrapalsingh')} sx={{ mt: 2 }}>
+        <Button onClick={() => navigate('/manendrapalsingh#portfolio', { state: { scrollTo: 'portfolio' } })} sx={{ mt: 2 }}>
           Back to Projects
         </Button>
       </Box>
@@ -33,7 +33,7 @@ const ProjectDetail = () => {
       <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
         <Button
           startIcon={<ArrowBackIcon />}
-          onClick={() => navigate('/manendrapalsingh')}
+          onClick={() => navigate('/manendrapalsingh#portfolio', { state: { scrollTo: 'portfolio' } })}
           sx={{ mb: 4 }}
         >
           Back to Projects

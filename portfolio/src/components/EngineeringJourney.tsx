@@ -33,7 +33,7 @@ const chapters = [
 ];
 
 const EngineeringJourney = () => (
-  <Box id="journey" component="section" sx={{ py: { xs: 10, md: 14 }, backgroundColor: 'rgba(4, 12, 23, 0.76)' }}>
+  <Box id="journey" component="section" sx={{ py: { xs: 10, md: 14 }, backgroundColor: 'transparent', contentVisibility: 'auto', containIntrinsicSize: '900px' }}>
     <Container maxWidth="lg">
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '.7fr 1.3fr' }, gap: { xs: 5, md: 9 } }}>
         <Box sx={{ position: { md: 'sticky' }, top: { md: 120 }, alignSelf: 'start' }}>

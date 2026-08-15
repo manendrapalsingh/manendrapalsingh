@@ -7,18 +7,74 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { openSourceContributions } from '../data/openSource';
 import { getTechIcon } from './TechStackIcons';
 import { getTechColor } from '../utils/techColors';
+import { useEffect, useState } from 'react';
+
+type LivePullRequest = {
+  number: number;
+  title: string;
+  url: string;
+  status: 'merged' | 'closed' | 'open';
+  date?: string;
+};
+
+type GitHubSearchItem = {
+  number: number;
+  title: string;
+  state: 'open' | 'closed';
+  html_url: string;
+  closed_at: string | null;
+  created_at: string;
+  pull_request?: { merged_at?: string | null };
+};
 
 const OpenSourceDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const contribution = openSourceContributions.find((c) => c.id === id);
+  const [livePullRequests, setLivePullRequests] = useState<LivePullRequest[] | null>(null);
+  const [isLoadingPullRequests, setIsLoadingPullRequests] = useState(true);
+
+  useEffect(() => {
+    if (!contribution) return;
+
+    const controller = new AbortController();
+    const repositoryPath = contribution.repository.replace('https://github.com/', '').replace(/\/$/, '');
+    const query = encodeURIComponent(`author:manendrapalsingh is:pr repo:${repositoryPath}`);
+
+    fetch(`https://api.github.com/search/issues?q=${query}&sort=created&order=desc&per_page=100`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error('GitHub API request failed');
+        return response.json() as Promise<{ items: GitHubSearchItem[] }>;
+      })
+      .then(({ items }) => {
+        setLivePullRequests(items.map((item) => {
+          const mergedAt = item.pull_request?.merged_at;
+          const dateValue = mergedAt || item.closed_at || item.created_at;
+          return {
+            number: item.number,
+            title: item.title,
+            url: item.html_url,
+            status: mergedAt ? 'merged' : item.state,
+            date: new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(dateValue)),
+          };
+        }));
+      })
+      .catch((error) => {
+        if ((error as Error).name !== 'AbortError') setLivePullRequests(null);
+      })
+      .finally(() => setIsLoadingPullRequests(false));
+
+    return () => controller.abort();
+  }, [contribution]);
+
+  const pullRequests: LivePullRequest[] = livePullRequests || contribution?.pullRequests || [];
 
   if (!contribution) {
     return (
       <Box sx={{ py: 10, textAlign: 'center' }}>
         <Typography variant="h4">Contribution not found</Typography>
-        <Button onClick={() => navigate('/manendrapalsingh')} sx={{ mt: 2 }}>
-          Back to Home
+        <Button onClick={() => navigate('/manendrapalsingh#portfolio', { state: { scrollTo: 'portfolio' } })} sx={{ mt: 2 }}>
+          Back to Open Source
         </Button>
       </Box>
     );
@@ -37,10 +93,10 @@ const OpenSourceDetail = () => {
       <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
         <Button
           startIcon={<ArrowBackIcon />}
-          onClick={() => navigate('/manendrapalsingh')}
+          onClick={() => navigate('/manendrapalsingh#portfolio', { state: { scrollTo: 'portfolio' } })}
           sx={{ mb: 4 }}
         >
-          Back to Home
+          Back to Open Source
         </Button>
 
         <Paper elevation={3} sx={{ p: { xs: 3, sm: 5 }, mb: 4 }}>
@@ -116,14 +172,14 @@ const OpenSourceDetail = () => {
             </>
           )}
 
-          {contribution.pullRequests && contribution.pullRequests.length > 0 && (
+          {pullRequests.length > 0 && (
             <>
               <Divider sx={{ my: 4 }} />
               <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
-                Pull Requests ({contribution.pullRequests.length})
+                Pull Requests ({pullRequests.length}) {isLoadingPullRequests && '· Syncing with GitHub…'}
               </Typography>
               <Grid container spacing={3}>
-                {contribution.pullRequests.map((pr) => (
+                {pullRequests.map((pr) => (
                   <Grid item xs={12} key={pr.number}>
                     <Paper
                       elevation={1}
@@ -157,15 +213,15 @@ const OpenSourceDetail = () => {
                           </MuiLink>
                           {pr.date && (
                             <Typography variant="body2" color="text.secondary">
-                              Merged on {pr.date}
+                              {pr.status === 'merged' ? 'Merged' : pr.status === 'open' ? 'Opened' : 'Closed'} on {pr.date}
                             </Typography>
                           )}
                         </Box>
                         <Chip
-                          label={pr.status === 'merged' ? 'Merged' : 'Closed'}
+                          label={pr.status === 'merged' ? 'Merged' : pr.status === 'open' ? 'Open' : 'Closed'}
                           size="small"
                           sx={{
-                            backgroundColor: pr.status === 'merged' ? 'success.main' : 'grey.500',
+                            backgroundColor: pr.status === 'merged' ? 'success.main' : pr.status === 'open' ? 'primary.main' : 'grey.500',
                             color: 'white',
                             fontWeight: 600,
                           }}

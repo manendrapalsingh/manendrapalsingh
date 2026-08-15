@@ -78,8 +78,8 @@ export const openSourceContributions: OpenSourceContribution[] = [
     id: 'beckn-onix',
     title: 'Beckn-ONIX',
     description: 'A production-ready, plugin-based middleware adapter for the Beckn Protocol. Enterprise-grade middleware that facilitates seamless communication in Beckn-enabled networks.',
-    repository: 'https://github.com/Beckn-One/beckn-onix',
-    organization: 'Beckn-One',
+    repository: 'https://github.com/beckn/beckn-onix',
+    organization: 'Beckn',
     contributions: [
       'Implemented TLS/SSL support for Redis cache connections, enabling secure communication in production environments',
       'Fixed and improved test coverage in main_test.go and module_test.go, ensuring code reliability',
@@ -110,5 +110,26 @@ export const openSourceContributions: OpenSourceContribution[] = [
       },
     ],
     technologies: ['Go', 'Beckn Protocol', 'ONIX Adapter', 'Redis', 'TLS', 'Observability', 'Testing', 'Distributed Tracing'],
+  },
+  {
+    id: 'kestra',
+    title: 'Kestra',
+    description: 'Contributed a production fix to Kestra, an open-source event-driven orchestration and scheduling platform.',
+    repository: 'https://github.com/kestra-io/kestra',
+    organization: 'Kestra',
+    contributions: [
+      'Diagnosed and fixed a production issue in the open-source orchestration platform',
+      'Submitted the change through the project review process and delivered it as merged pull request #15047',
+    ],
+    pullRequests: [
+      {
+        number: 15047,
+        title: 'Fix : Issue number 15029',
+        url: 'https://github.com/kestra-io/kestra/pull/15047',
+        status: 'merged',
+        date: 'Mar 16, 2026',
+      },
+    ],
+    technologies: ['Java', 'Orchestration', 'Open Source'],
   },
 ];

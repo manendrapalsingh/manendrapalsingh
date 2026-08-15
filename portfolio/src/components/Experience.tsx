@@ -13,17 +13,19 @@ const Experience = () => {
     <Box
       id="experience"
       component={motion.section}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: false, amount: 0.3, margin: '-100px 0px -100px 0px' }}
+      initial={{ opacity: 0, x: -28 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.08 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       sx={{
-        minHeight: '100vh',
+        minHeight: 'auto',
         py: 10,
-        backgroundColor: 'rgba(7, 17, 31, 0.72)',
+        backgroundColor: 'transparent',
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
+        contentVisibility: 'auto',
+        containIntrinsicSize: '900px',
       }}
     >
       <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>

@@ -1,20 +1,18 @@
 import { AppBar, Toolbar, Button, Box, Chip, useScrollTrigger } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect, type MouseEvent } from 'react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 const sections = [
   { id: 'hero', label: 'Home' },
   { id: 'experience', label: 'Experience' },
   { id: 'journey', label: 'Impact' },
   { id: 'portfolio', label: 'Portfolio' },
-  { id: 'github', label: 'GitHub' },
   { id: 'contact', label: 'Contact' },
 ];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
 
   const trigger = useScrollTrigger({
@@ -27,19 +25,7 @@ const Header = () => {
   }, [trigger]);
 
   const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== '/manendrapalsingh') {
-      navigate('/manendrapalsingh');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start',
-            inline: 'nearest'
-          });
-        }
-      }, 100);
-    } else {
+    if (location.pathname === '/manendrapalsingh') {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ 
@@ -51,9 +37,11 @@ const Header = () => {
     }
   };
 
-  const handleHomeClick = () => {
-    navigate('/manendrapalsingh');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleHomeClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname === '/manendrapalsingh') {
+      event.preventDefault();
+      document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
@@ -85,6 +73,9 @@ const Header = () => {
           whileTap={{ scale: 0.95 }}
         >
           <Button
+            component={RouterLink}
+            to="/manendrapalsingh#hero"
+            state={{ scrollTo: 'hero' }}
             onClick={handleHomeClick}
             sx={{
               color: 'text.primary',
@@ -96,8 +87,7 @@ const Header = () => {
               },
             }}
           >
-            <Box component="span" sx={{ color: 'secondary.main', mr: 1 }}>MPS</Box>
-            <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>Manendra Pal Singh</Box>
+            <Box component="span">Manendra Pal Singh</Box>
           </Button>
         </motion.div>
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 0.5 }}>
@@ -108,7 +98,15 @@ const Header = () => {
               whileTap={{ y: 0 }}
             >
               <Button
-                onClick={() => scrollToSection(section.id)}
+                component={RouterLink}
+                to={`/manendrapalsingh#${section.id}`}
+                state={{ scrollTo: section.id }}
+                onClick={(event) => {
+                  if (location.pathname === '/manendrapalsingh') {
+                    event.preventDefault();
+                    scrollToSection(section.id);
+                  }
+                }}
                 sx={{
                   color: 'text.primary',
                   fontWeight: 500,

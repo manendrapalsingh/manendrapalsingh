@@ -15,8 +15,8 @@ const ExperienceDetail = () => {
     return (
       <Box sx={{ py: 10, textAlign: 'center', minHeight: '100vh', backgroundColor: 'background.default' }}>
         <Typography variant="h4">Experience not found</Typography>
-        <Button onClick={() => navigate('/manendrapalsingh')} sx={{ mt: 2 }}>
-          Back to Home
+        <Button onClick={() => navigate('/manendrapalsingh#experience', { state: { scrollTo: 'experience' } })} sx={{ mt: 2 }}>
+          Back to Experience
         </Button>
       </Box>
     );
@@ -40,7 +40,7 @@ const ExperienceDetail = () => {
       <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
         <Button
           startIcon={<ArrowBackIcon />}
-          onClick={() => navigate('/manendrapalsingh')}
+          onClick={() => navigate('/manendrapalsingh#experience', { state: { scrollTo: 'experience' } })}
           sx={{ mb: 4 }}
         >
           Back to Experience

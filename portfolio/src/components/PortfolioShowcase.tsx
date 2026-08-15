@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Tabs, Tab, Paper, Card, CardContent, CardActions, Button, Chip, Grid } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CodeIcon from '@mui/icons-material/Code';
 import SchoolIcon from '@mui/icons-material/School';
@@ -38,6 +38,33 @@ function TabPanel(props: TabPanelProps) {
 const PortfolioShowcase = () => {
   const SHOW_PROJECTS_TAB = true;
   const [value, setValue] = useState(0);
+  const [livePullRequestCounts, setLivePullRequestCounts] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const query = encodeURIComponent('author:manendrapalsingh is:pr');
+
+    fetch(`https://api.github.com/search/issues?q=${query}&sort=created&order=desc&per_page=100`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error('GitHub API request failed');
+        return response.json() as Promise<{ items: Array<{ repository_url: string; pull_request?: { merged_at?: string | null } }> }>;
+      })
+      .then(({ items }) => {
+        const counts = items.reduce<Record<string, number>>((result, item) => {
+          if (item.pull_request?.merged_at) {
+            const repository = item.repository_url.replace('https://api.github.com/repos/', '').toLowerCase();
+            result[repository] = (result[repository] || 0) + 1;
+          }
+          return result;
+        }, {});
+        setLivePullRequestCounts(counts);
+      })
+      .catch((error) => {
+        if ((error as Error).name !== 'AbortError') setLivePullRequestCounts({});
+      });
+
+    return () => controller.abort();
+  }, []);
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -76,16 +103,18 @@ const PortfolioShowcase = () => {
     <Box
       id="portfolio"
       component={motion.section}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: false, amount: 0.3, margin: '-100px 0px -100px 0px' }}
+      initial={{ opacity: 0, scale: 0.985 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       sx={{
-        minHeight: '100vh',
+        minHeight: 'auto',
         py: 10,
-        backgroundColor: 'rgba(7, 17, 31, 0.58)',
+        backgroundColor: 'transparent',
         display: 'flex',
         alignItems: 'center',
+        contentVisibility: 'auto',
+        containIntrinsicSize: '1000px',
       }}
     >
       <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
@@ -222,18 +251,6 @@ const PortfolioShowcase = () => {
                         </Box>
                       </CardContent>
                       <CardActions sx={{ p: 2, pt: 0 }}>
-                        {project.link && (
-                          <Button
-                            size="small"
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            endIcon={<LaunchIcon />}
-                            sx={{ color: 'primary.main' }}
-                          >
-                            Live Demo
-                          </Button>
-                        )}
                         <Button
                           component={Link}
                           to={`/manendrapalsingh/project/${project.id}`}
@@ -267,7 +284,10 @@ const PortfolioShowcase = () => {
                     animate="animate"
                   >
                     <Grid container spacing={3}>
-                      {openSourceContributions.map((contribution) => (
+                      {openSourceContributions.map((contribution) => {
+                        const repositoryPath = contribution.repository.replace('https://github.com/', '').replace(/\/$/, '').toLowerCase();
+                        const pullRequestCount = livePullRequestCounts[repositoryPath] ?? contribution.pullRequests?.filter((pr) => pr.status === 'merged').length ?? 0;
+                        return (
                         <Grid item xs={12} md={6} key={contribution.id}>
                           <motion.div variants={staggerItem}>
                             <Card
@@ -295,9 +315,9 @@ const PortfolioShowcase = () => {
                         <Typography variant="body2" paragraph sx={{ mb: 2, color: 'text.secondary', minHeight: '60px' }}>
                           {contribution.description}
                         </Typography>
-                        {contribution.pullRequests && (
+                        {pullRequestCount > 0 && (
                           <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                            {contribution.pullRequests.length} Pull Request{contribution.pullRequests.length > 1 ? 's' : ''} merged
+                            {pullRequestCount} Pull Request{pullRequestCount > 1 ? 's' : ''} merged
                           </Typography>
                         )}
                       </CardContent>
@@ -363,7 +383,7 @@ const PortfolioShowcase = () => {
                             </Card>
                           </motion.div>
                         </Grid>
-                      ))}
+                      )})}
                     </Grid>
                   </motion.div>
                 </motion.div>

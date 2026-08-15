@@ -34,49 +34,17 @@ const HeroAbout = () => {
       component={motion.section}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: false, amount: 0.3, margin: '-100px 0px -100px 0px' }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       sx={{
-        minHeight: '100vh',
+        minHeight: { xs: 'auto', md: '94svh' },
         display: 'flex',
         flexDirection: 'column',
-        background: 'radial-gradient(circle at 82% 18%, rgba(14,165,233,.16), transparent 32%), radial-gradient(circle at 12% 72%, rgba(94,234,212,.08), transparent 30%), #07111f',
+        backgroundColor: 'transparent',
         position: 'relative',
         overflow: 'hidden',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          inset: 0,
-          opacity: 0.22,
-          backgroundImage: 'linear-gradient(rgba(56,189,248,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.09) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
-          maskImage: 'linear-gradient(to bottom, black, transparent 82%)',
-          pointerEvents: 'none',
-          animation: 'gridTravel 18s linear infinite',
-        },
-        '&::after': {
-          content: '""',
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          height: 1,
-          top: '18%',
-          background: 'linear-gradient(90deg, transparent, rgba(94,234,212,.55), transparent)',
-          boxShadow: '0 0 24px rgba(94,234,212,.3)',
-          animation: 'scanLine 8s ease-in-out infinite',
-          pointerEvents: 'none',
-        },
-        '@keyframes gridTravel': { to: { backgroundPosition: '48px 48px' } },
-        '@keyframes scanLine': { '0%, 100%': { top: '12%', opacity: 0 }, '20%, 80%': { opacity: .7 }, '50%': { top: '88%' } },
-        '@media (prefers-reduced-motion: reduce)': { '&::before, &::after': { animation: 'none' } },
       }}
     >
-      <Box
-        component={motion.div}
-        animate={{ opacity: [0.35, 0.8, 0.35], scale: [1, 1.08, 1] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-        sx={{ position: 'absolute', width: 360, height: 360, right: '-8%', top: '12%', borderRadius: '50%', border: '1px solid rgba(56,189,248,.22)', boxShadow: '0 0 100px rgba(56,189,248,.14)', pointerEvents: 'none' }}
-      />
       {/* Section 1: Title Section (Top) */}
       <Box sx={{ width: '100%', pt: { xs: 13, md: 17 }, pb: 3 }}>
         <Container maxWidth="lg" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
@@ -292,10 +260,16 @@ const HeroAbout = () => {
       </Box>
       <Box sx={{ borderTop: '1px solid', borderBottom: '1px solid', borderColor: 'divider', overflow: 'hidden', py: 1.5, backgroundColor: 'rgba(3,10,19,.55)' }}>
         <Box
-          component={motion.div}
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
-          sx={{ display: 'flex', width: 'max-content', gap: 5, whiteSpace: 'nowrap', '@media (prefers-reduced-motion: reduce)': { transform: 'none !important' } }}
+          sx={{
+            display: 'flex',
+            width: 'max-content',
+            gap: 5,
+            whiteSpace: 'nowrap',
+            animation: 'techTicker 30s linear infinite',
+            willChange: 'transform',
+            '@keyframes techTicker': { to: { transform: 'translate3d(-50%, 0, 0)' } },
+            '@media (prefers-reduced-motion: reduce)': { animation: 'none', transform: 'none' },
+          }}
         >
           {[...Array(2)].flatMap((_, copy) => ['GO', 'TYPESCRIPT', 'KUBERNETES', 'AZURE', 'TERRAFORM', 'FLUX', 'DATADOG', 'OPENFGA'].map((tech) => (
             <Typography key={`${copy}-${tech}`} sx={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontSize: '.72rem', letterSpacing: '.16em', color: 'text.secondary' }}>

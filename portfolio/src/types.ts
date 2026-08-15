@@ -47,7 +47,7 @@ export interface OpenSourceContribution {
     number: number;
     title: string;
     url: string;
-    status: 'merged' | 'closed';
+    status: 'merged' | 'closed' | 'open';
     date?: string;
   }>;
   technologies: string[];

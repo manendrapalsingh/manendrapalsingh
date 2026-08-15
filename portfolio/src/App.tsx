@@ -1,5 +1,5 @@
 import { ThemeProvider, CssBaseline, Box, CircularProgress } from '@mui/material';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import theme from './theme';
@@ -12,7 +12,6 @@ const Experience = lazy(() => import('./components/Experience'));
 const EngineeringJourney = lazy(() => import('./components/EngineeringJourney'));
 const PortfolioShowcase = lazy(() => import('./components/PortfolioShowcase'));
 const Contact = lazy(() => import('./components/Contact'));
-const GitHubActivity = lazy(() => import('./components/GitHubActivity'));
 const ProjectDetail = lazy(() => import('./components/ProjectDetail'));
 const OpenSourceDetail = lazy(() => import('./components/OpenSourceDetail'));
 const ExperienceDetail = lazy(() => import('./components/ExperienceDetail'));
@@ -30,6 +29,34 @@ function LoadingFallback() {
 }
 
 function HomePage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const targetId = (location.state as { scrollTo?: string } | null)?.scrollTo || location.hash.replace('#', '');
+    if (!targetId) return;
+
+    const delays = [0, 250, 700, 1500];
+    const timers = delays.map((delay, index) => window.setTimeout(() => {
+      const target = document.getElementById(targetId);
+      if (target) {
+        if (index === 0) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          const root = document.documentElement;
+          const previousBehavior = root.style.scrollBehavior;
+          root.style.scrollBehavior = 'auto';
+          window.scrollTo(0, target.offsetTop - 72);
+          window.requestAnimationFrame(() => { root.style.scrollBehavior = previousBehavior; });
+        }
+        if (index === delays.length - 1) {
+          window.history.replaceState({}, '', '/manendrapalsingh/');
+        }
+      }
+    }, delay));
+
+    return () => timers.forEach((timer) => window.clearTimeout(timer));
+  }, [location.hash, location.state]);
+
   useEffect(() => {
     // Add scroll snap behavior and hardware acceleration for smooth animations
     const style = document.createElement('style');
@@ -40,22 +67,13 @@ function HomePage() {
       html {
         scroll-behavior: smooth;
       }
-      main {
-        scroll-snap-type: y proximity;
-        -webkit-overflow-scrolling: touch;
-      }
-      section[id] {
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
-      }
-      [data-framer-motion-component],
-      section[data-framer-motion-component] {
-        will-change: transform, opacity;
-        transform: translateZ(0);
-        backface-visibility: hidden;
-        perspective: 1000px;
+      body {
+        overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+      }
+      section[id] {
+        scroll-margin-top: 72px;
       }
       @media (prefers-reduced-motion: reduce) {
         * {
@@ -74,13 +92,12 @@ function HomePage() {
   }, []);
 
   return (
-    <main style={{ overflowY: 'auto', height: '100vh' }}>
+    <main>
       <Suspense fallback={<LoadingFallback />}>
         <HeroAbout />
         <Experience />
         <EngineeringJourney />
         <PortfolioShowcase />
-        <GitHubActivity />
         <Contact />
       </Suspense>
     </main>
@@ -124,6 +141,8 @@ function AnimatedRoutes() {
                 path="/manendrapalsingh/experience/:id"
                 element={<ExperienceDetail />}
               />
+              <Route path="/" element={<Navigate to="/manendrapalsingh" replace />} />
+              <Route path="*" element={<Navigate to="/manendrapalsingh" replace />} />
             </Routes>
           </Suspense>
         </motion.div>
