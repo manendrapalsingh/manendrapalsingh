@@ -1,4 +1,4 @@
-import { Box, Typography, Button, Container } from '@mui/material';
+import { Box, Typography, Button, Container, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import DownloadIcon from '@mui/icons-material/Download';
@@ -40,32 +40,61 @@ const HeroAbout = () => {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'background.default',
+        background: 'radial-gradient(circle at 82% 18%, rgba(14,165,233,.16), transparent 32%), radial-gradient(circle at 12% 72%, rgba(94,234,212,.08), transparent 30%), #07111f',
         position: 'relative',
         overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.22,
+          backgroundImage: 'linear-gradient(rgba(56,189,248,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.09) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+          maskImage: 'linear-gradient(to bottom, black, transparent 82%)',
+          pointerEvents: 'none',
+          animation: 'gridTravel 18s linear infinite',
+        },
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          height: 1,
+          top: '18%',
+          background: 'linear-gradient(90deg, transparent, rgba(94,234,212,.55), transparent)',
+          boxShadow: '0 0 24px rgba(94,234,212,.3)',
+          animation: 'scanLine 8s ease-in-out infinite',
+          pointerEvents: 'none',
+        },
+        '@keyframes gridTravel': { to: { backgroundPosition: '48px 48px' } },
+        '@keyframes scanLine': { '0%, 100%': { top: '12%', opacity: 0 }, '20%, 80%': { opacity: .7 }, '50%': { top: '88%' } },
+        '@media (prefers-reduced-motion: reduce)': { '&::before, &::after': { animation: 'none' } },
       }}
     >
+      <Box
+        component={motion.div}
+        animate={{ opacity: [0.35, 0.8, 0.35], scale: [1, 1.08, 1] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        sx={{ position: 'absolute', width: 360, height: 360, right: '-8%', top: '12%', borderRadius: '50%', border: '1px solid rgba(56,189,248,.22)', boxShadow: '0 0 100px rgba(56,189,248,.14)', pointerEvents: 'none' }}
+      />
       {/* Section 1: Title Section (Top) */}
-      <Box sx={{ width: '100%', pt: 10, pb: 2 }}>
+      <Box sx={{ width: '100%', pt: { xs: 13, md: 17 }, pb: 3 }}>
         <Container maxWidth="lg" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
           <motion.div
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
             transition={fadeInUp.transition}
           >
-            <Typography
-              variant="body2"
+            <Chip
+              label="Senior Software Developer · Alpheya"
               sx={{
-                mb: 1.5,
-                color: 'primary.main',
-                textTransform: 'uppercase',
-                letterSpacing: 2,
-                fontSize: '0.875rem',
-                fontWeight: 600,
+                mb: 3,
+                color: 'secondary.light',
+                border: '1px solid rgba(94,234,212,.26)',
+                backgroundColor: 'rgba(94,234,212,.08)',
+                fontWeight: 700,
               }}
-            >
-              Ready to Innovate
-            </Typography>
+            />
           </motion.div>
 
           <motion.div variants={staggerContainer} initial="initial" animate="animate">
@@ -74,15 +103,16 @@ const HeroAbout = () => {
               component={motion.h1}
               variants={titleVariants}
               sx={{
-                mb: 1.5,
-                fontWeight: 700,
-                color: 'text.primary',
-                fontSize: { xs: '2.25rem', sm: '3rem', md: '4rem' },
-                lineHeight: 1.2,
+                mb: 2,
+                fontWeight: 800,
+                maxWidth: 950,
+                fontSize: { xs: '2.7rem', sm: '4rem', md: '5.5rem' },
+                lineHeight: 0.98,
+                letterSpacing: '-0.055em',
               }}
             >
               <motion.span variants={titleVariants}>
-                Full Stack Engineer
+                I build resilient platforms that stay fast at scale.
               </motion.span>
             </Typography>
           </motion.div>
@@ -95,7 +125,7 @@ const HeroAbout = () => {
             <Typography
               variant="body1"
               sx={{
-                mb: 0.5,
+                mb: 1,
                 maxWidth: '600px',
                 lineHeight: 1.8,
                 color: 'text.secondary',
@@ -103,7 +133,7 @@ const HeroAbout = () => {
                 fontWeight: 400,
               }}
             >
-              Software Engineer – Consultant
+              Backend engineering · Platform reliability · AI-assisted operations
             </Typography>
           </motion.div>
 
@@ -119,17 +149,17 @@ const HeroAbout = () => {
                 lineHeight: 1.8,
                 color: 'text.primary',
                 fontSize: { xs: '0.95rem', sm: '1.1rem' },
-                whiteSpace: { xs: 'normal', sm: 'nowrap' },
+                maxWidth: 820,
               }}
             >
-              Building scalable systems and products that perform reliably at real-world scale.
+              Go, TypeScript, Kubernetes and multi-cloud systems—from 10 ms APIs to multi-zone recovery and proactive SRE automation.
             </Typography>
           </motion.div>
         </Container>
       </Box>
 
       {/* Section 2: Introduction Text (Middle - Full Width) */}
-      <Box sx={{ width: '100%', py: 1 }}>
+      <Box sx={{ width: '100%', py: 2 }}>
         <Container maxWidth="lg" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
           <motion.div
             initial={fadeInUp.initial}
@@ -140,49 +170,39 @@ const HeroAbout = () => {
               sx={{
                 border: '1px solid',
                 borderColor: 'divider',
-                borderRadius: 2,
-                p: { xs: 1.5, sm: 2, md: 2.5 },
-                maxWidth: '1000px',
-                backgroundColor: 'background.paper',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                borderRadius: 4,
+                p: { xs: 2.5, sm: 3, md: 4 },
+                maxWidth: '1050px',
+                backgroundColor: 'rgba(13,27,45,.72)',
+                backdropFilter: 'blur(18px)',
+                boxShadow: '0 24px 70px rgba(0, 0, 0, 0.24)',
               }}
             >
-              <Typography
-                variant="body1"
-                paragraph
-                sx={{
-                  fontSize: { xs: '0.95rem', sm: '1.05rem' },
-                  lineHeight: 1.8,
-                  mb: 1,
-                  color: 'text.primary',
-                }}
-              >
-                I'm <strong>Manendra Pal Singh</strong>, a full-stack engineer with experience building and operating production-grade systems across high-growth startups and large-scale platforms. I specialize in backend engineering using Golang and Java, along with building modern web applications in React, and I'm comfortable owning features end-to-end — from data modeling and API design to production-ready user interfaces.
-              </Typography>
-              <Typography
-                variant="body1"
-                paragraph
-                sx={{
-                  fontSize: { xs: '0.95rem', sm: '1.05rem' },
-                  lineHeight: 1.8,
-                  mb: 1,
-                  color: 'text.primary',
-                }}
-              >
-                I've worked on high-traffic, low-latency systems where scalability, reliability, and observability are critical. My work includes designing cloud-native and distributed systems, building event-driven workflows, and ensuring systems perform reliably under real-world load. My primary stack includes Go, Java, React, PostgreSQL, and Kubernetes.
-              </Typography>
-              <Typography
-                variant="body1"
-                paragraph
-                sx={{
-                  fontSize: { xs: '0.95rem', sm: '1.05rem' },
-                  lineHeight: 1.8,
-                  mb: 0,
-                  color: 'text.primary',
-                }}
-              >
-                I'm product-minded and execution-focused, with a strong emphasis on clean architecture, performance, and long-term maintainability. I enjoy working in fast-moving environments while applying the engineering rigor required to build systems that scale confidently in production.
-              </Typography>
+              <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1.25fr .75fr' }, gap: 4, alignItems: 'center' }}>
+                <Typography variant="body1" sx={{ fontSize: { xs: '0.95rem', sm: '1.05rem' }, lineHeight: 1.8, color: 'text.primary' }}>
+                  I'm <strong>Manendra Pal Singh</strong>, a Senior Software Developer with 4+ years of experience building and operating production-grade systems across wealth technology, digital payments, mobility, lending, and decentralized infrastructure. I specialize in backend and platform engineering using Go, TypeScript, Kubernetes, and cloud-native architecture.
+                </Typography>
+                <Box sx={{ border: '1px solid rgba(94,234,212,.22)', borderRadius: 2.5, overflow: 'hidden', backgroundColor: 'rgba(3,10,19,.8)', textAlign: 'left', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace' }}>
+                  <Box sx={{ display: 'flex', gap: .75, px: 2, py: 1.25, borderBottom: '1px solid', borderColor: 'divider' }}>
+                    {['#fb7185', '#fbbf24', '#5eead4'].map((color) => <Box key={color} sx={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: color }} />)}
+                    <Typography sx={{ ml: 1, fontFamily: 'inherit', fontSize: '.68rem', color: 'text.secondary' }}>platform.status</Typography>
+                  </Box>
+                  <Box sx={{ p: 2 }}>
+                    <Typography sx={{ fontFamily: 'inherit', fontSize: '.78rem', color: 'secondary.main', mb: 1 }}>$ kubectl get platform</Typography>
+                    <Typography sx={{ fontFamily: 'inherit', fontSize: '.72rem', color: 'text.secondary', mb: .7 }}>REGION&nbsp;&nbsp;&nbsp; azure-multizone</Typography>
+                    <Typography sx={{ fontFamily: 'inherit', fontSize: '.72rem', color: 'text.secondary', mb: .7 }}>STATUS&nbsp;&nbsp;&nbsp; <Box component="span" sx={{ color: 'secondary.main' }}>● HEALTHY</Box></Typography>
+                    <Typography sx={{ fontFamily: 'inherit', fontSize: '.72rem', color: 'text.secondary' }}>RELEASE&nbsp;&nbsp; biweekly / automated</Typography>
+                  </Box>
+                </Box>
+              </Box>
+              <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr 1fr', md: 'repeat(4, 1fr)' }, gap: 2.5, mt: 3, pt: 3, borderTop: '1px solid', borderColor: 'divider' }}>
+                {[['99.99%', 'availability target'], ['10 ms', 'API latency'], ['20K', 'requests / minute'], ['18', 'EV operators']].map(([value, label]) => (
+                  <Box key={label}>
+                    <Typography variant="h4" color="secondary.main" sx={{ fontWeight: 800, fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace' }}>{value}</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ textTransform: 'uppercase', letterSpacing: '.09em', fontSize: '.68rem' }}>{label}</Typography>
+                  </Box>
+                ))}
+              </Box>
             </Box>
           </motion.div>
         </Container>
@@ -269,6 +289,20 @@ const HeroAbout = () => {
             </Box>
           </motion.div>
         </Container>
+      </Box>
+      <Box sx={{ borderTop: '1px solid', borderBottom: '1px solid', borderColor: 'divider', overflow: 'hidden', py: 1.5, backgroundColor: 'rgba(3,10,19,.55)' }}>
+        <Box
+          component={motion.div}
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+          sx={{ display: 'flex', width: 'max-content', gap: 5, whiteSpace: 'nowrap', '@media (prefers-reduced-motion: reduce)': { transform: 'none !important' } }}
+        >
+          {[...Array(2)].flatMap((_, copy) => ['GO', 'TYPESCRIPT', 'KUBERNETES', 'AZURE', 'TERRAFORM', 'FLUX', 'DATADOG', 'OPENFGA'].map((tech) => (
+            <Typography key={`${copy}-${tech}`} sx={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontSize: '.72rem', letterSpacing: '.16em', color: 'text.secondary' }}>
+              <Box component="span" sx={{ color: 'secondary.main', mr: 1 }}>◆</Box>{tech}
+            </Typography>
+          )))}
+        </Box>
       </Box>
     </Box>
   );

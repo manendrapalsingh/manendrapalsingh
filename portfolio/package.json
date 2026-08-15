@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/sync-resume.mjs",
     "dev": "vite",
+    "prebuild": "make -C ../resume-latex && node scripts/sync-resume.mjs",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },

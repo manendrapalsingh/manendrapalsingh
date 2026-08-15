@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Button, Box, useScrollTrigger } from '@mui/material';
+import { AppBar, Toolbar, Button, Box, Chip, useScrollTrigger } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -6,7 +6,9 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const sections = [
   { id: 'hero', label: 'Home' },
   { id: 'experience', label: 'Experience' },
+  { id: 'journey', label: 'Impact' },
   { id: 'portfolio', label: 'Portfolio' },
+  { id: 'github', label: 'GitHub' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -62,10 +64,10 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
       sx={{
-        backgroundColor: scrolled ? 'rgba(15, 23, 42, 0.95)' : 'transparent',
-        boxShadow: scrolled ? 2 : 0,
+        backgroundColor: scrolled ? 'rgba(7, 17, 31, 0.82)' : 'rgba(7, 17, 31, 0.35)',
+        boxShadow: scrolled ? '0 10px 40px rgba(0,0,0,.18)' : 0,
         transition: 'all 0.3s ease',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        backdropFilter: 'blur(18px)',
         borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
       }}
     >
@@ -94,10 +96,11 @@ const Header = () => {
               },
             }}
           >
-            Manendra Pal Singh
+            <Box component="span" sx={{ color: 'secondary.main', mr: 1 }}>MPS</Box>
+            <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>Manendra Pal Singh</Box>
           </Button>
         </motion.div>
-        <Box sx={{ display: 'flex', gap: { xs: 0.5, sm: 1 }, flexWrap: 'wrap' }}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 0.5 }}>
           {sections.map((section) => (
             <motion.div
               key={section.id}
@@ -134,6 +137,11 @@ const Header = () => {
             </motion.div>
           ))}
         </Box>
+        <Chip
+          label="Available in Bengaluru"
+          size="small"
+          sx={{ display: { xs: 'flex', md: 'none' }, color: 'secondary.light', backgroundColor: 'rgba(94,234,212,.1)' }}
+        />
       </Toolbar>
     </AppBar>
   );

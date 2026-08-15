@@ -1,154 +1,140 @@
-<h1 align="center">
-  <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/>
-  Hey! Nice to see you.
-</h1>
+<div align="center">
 
-<p align="center">
-  I'm <b>Manendra Pal Singh</b> — <b>Senior Software Developer at Alpheya</b> 💻 <br/>
-  Backend and platform engineer with 4+ years of experience building scalable, production-grade systems across wealth technology, digital payments, mobility, lending, and decentralized infrastructure. I work across product engineering, cloud platforms, reliability, and AI-assisted operational tooling. <br/><br/>
-  Currently building and operating a <b>multi-tenant wealth technology platform</b> using <b>Go, TypeScript, Azure, Kubernetes, Terraform, Flux, and GitOps</b>, with a focus on availability, disaster recovery, release automation, and proactive incident response. <br/><br/>
-  Outside of coding, I enjoy exploring new tech, gaming 🎮, and learning something new every day 👨🏻‍💻.
-</p>
+<img src="https://capsule-render.vercel.app/api?type=waving&height=210&color=0:07111f,55:0e7490,100:14b8a6&text=Manendra%20Pal%20Singh&fontColor=f8fafc&fontSize=44&fontAlignY=36&desc=Backend%20%E2%80%A2%20Platform%20%E2%80%A2%20AI%20Engineering&descAlignY=58&animation=fadeIn" width="100%" alt="Manendra Pal Singh — Backend, Platform and AI Engineering" />
 
-<p align="center">
-  <a href="https://github.com/manendrapalsingh" target="_blank">
-    <img alt="GitHub" height="25" src="https://img.shields.io/badge/GitHub-%2312100E.svg?logo=Github&logoColor=white"/>
-  </a>
-  <a href="https://www.linkedin.com/in/manendra-pal-singh/" target="_blank">
-    <img alt="LinkedIn" height="25" src="https://img.shields.io/badge/LinkedIn-%230A66C2.svg?logo=linkedin&logoColor=white"/>
-  </a>
-  <a href="mailto:manendra16200singh@gmail.com" target="_blank">
-    <img alt="Gmail" height="25" src="https://img.shields.io/badge/Gmail-D14836?logo=Gmail&logoColor=white"/>
-  </a>
-  <a href="https://hub.docker.com/u/manendrapalsingh" target="_blank">
-    <img alt="Docker Hub" height="25" src="https://img.shields.io/badge/Docker_Hub-2496ED?logo=docker&logoColor=white"/>
-  </a>
-</p>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&pause=1100&color=5EEAD4&center=true&vCenter=true&width=760&lines=Building+resilient+platforms+that+stay+fast+at+scale;Go+%7C+TypeScript+%7C+Kubernetes+%7C+Multi-Cloud;AI-assisted+release+engineering+and+SRE+operations" alt="Animated engineering introduction" /></a>
+
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-07111F?style=for-the-badge&logo=googlechrome&logoColor=5EEAD4)](https://manendrapalsingh.github.io/manendrapalsingh/)
+[![Resume](https://img.shields.io/badge/RESUME-07111F?style=for-the-badge&logo=readthedocs&logoColor=5EEAD4)](https://manendrapalsingh.github.io/manendrapalsingh/resume.pdf)
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-07111F?style=for-the-badge&logo=linkedin&logoColor=38BDF8)](https://www.linkedin.com/in/manendra-pal-singh/)
+[![Email](https://img.shields.io/badge/EMAIL-07111F?style=for-the-badge&logo=gmail&logoColor=FB7185)](mailto:manendra16200singh@gmail.com)
+[![Location](https://img.shields.io/badge/BENGALURU-07111F?style=for-the-badge&logo=googlemaps&logoColor=5EEAD4)](https://www.google.com/maps/place/Bengaluru)
+
+</div>
 
 ---
 
-<h2 align="center">🛠 Currently Working On</h2>
+## `> whoami`
 
-<p align="center">
-  • Multi-tenant, cloud-native wealth technology services <br/>
-  • AI-assisted release management using Azure AI Foundry, Helm, and Terraform <br/>
-  • Proactive SRE automation using Datadog signals, service telemetry, and operational runbooks <br/>
-  • Multi-zone reliability, disaster recovery, and GitOps delivery on Azure Kubernetes Service
-</p>
+I am a Senior Software Developer with 4+ years of experience building and operating cloud-native systems across wealth technology, digital payments, mobility, lending, and decentralized infrastructure.
 
----
+At **Alpheya**, I work across product and platform engineering for a multi-tenant wealth technology platform. My current focus includes Azure and Kubernetes infrastructure, GitOps delivery, multi-zone resilience, disaster recovery, AI-assisted release management, and proactive SRE automation.
 
-<h2 align="center">🚀 Tech Stack & Tools</h2>
-
-<h3 align="center">Backend & Architecture</h3>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
-  <img src="https://img.shields.io/badge/REST_API-02569B?style=for-the-badge&logo=swagger&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Microservices-FF6C37?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Event--Driven-0088CC?style=for-the-badge"/>
-</p>
-
-<h3 align="center">Frontend</h3>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
-  <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-  <img src="https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
-</p>
-
-<h3 align="center">Data, Infra & Observability</h3>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=apache-kafka&logoColor=white"/>
-  <img src="https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Redis-DD0031?style=for-the-badge&logo=redis&logoColor=white"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/PostGIS-336791?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white"/>
-  <img src="https://img.shields.io/badge/New_Relic-1CE783?style=for-the-badge&logo=newrelic&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Kubernetes-326ce5?style=for-the-badge&logo=kubernetes&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Flux-5468FF?style=for-the-badge&logo=flux&logoColor=white"/>
-  <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-  <img src="https://img.shields.io/badge/GCP-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Datadog-632CA6?style=for-the-badge&logo=datadog&logoColor=white"/>
-  <img src="https://img.shields.io/badge/CI/CD-2088FF?style=for-the-badge&logo=githubactions&logoColor=white"/>
-</p>
-
-<h3 align="center">AI Engineering & Automation</h3>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Azure_AI_Foundry-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-  <img src="https://img.shields.io/badge/AI_Agents-111827?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Runbook_Automation-0F766E?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/OpenFGA-6D28D9?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/RisingWave-00BFA5?style=for-the-badge"/>
-</p>
+I enjoy solving production problems where backend design, infrastructure, observability, security, and developer experience intersect.
 
 ---
 
-<h2 align="center">🤝 Contributions</h2>
+## `> platform.status`
 
-<p align="center">
-  <img src="https://github-contributor-stats.vercel.app/api?username=manendrapalsingh&limit=5&combine_all_yearly_contributions=true" alt="Contributions"/>
-</p>
+```text
+ROLE       Senior Software Developer @ Alpheya
+LOCATION   Bengaluru, India
+FOCUS      Backend · Platform · Reliability · AI Automation
+STATUS     ● BUILDING
+```
 
-<p align="center">
-  <i>Repositories I don’t own, where I’ve made direct code contributions (commits & PRs).</i>
-</p>
+## `> current.focus`
 
-<p align="center">
-  <small><i>Note: Only public contributions to public repositories are shown. Private repo contributions are not visible.</i></small>
-</p>
-
-<p align="center">
-  <a href="https://github.com/manendrapalsingh?tab=repositories">
-    <img src="https://img.shields.io/badge/View_Repositories-181717?style=for-the-badge&logo=github&logoColor=white"/>
-  </a>
-</p>
+- Operating 10 services across five Azure environments with a 99.99% availability target
+- Strengthening zonal recovery and disaster-recovery processes
+- Building an AI-assisted release-management tool using Azure AI Foundry, Helm, and Terraform
+- Building an AI SRE assistant using Cody, Datadog signals, service telemetry, and operational runbooks
+- Designing scalable Go and TypeScript services for a multi-tenant SaaS platform
 
 ---
 
-<h2 align="center">📊 GitHub Stats</h2>
+## `> engineering.impact`
 
-<p align="center">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=manendrapalsingh&show_icons=true&count_private=true&include_all_commits=true&theme=default" alt="GitHub Stats"/>
-  <img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=manendrapalsingh&layout=compact&theme=default" alt="Top Languages"/>
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=manendrapalsingh&theme=flat&column=6&margin-w=10" width="100%" alt="GitHub Trophies"/>
-</p>
-
----
-
-<h2 align="center">📈 Contribution Graph</h2>
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=manendrapalsingh&theme=github-light" width="100%" alt="Contribution Graph"/>
-</p>
+| Area | Impact |
+| --- | --- |
+| Platform reliability | Supported recovery within 15 minutes for zonal failures and within four hours for disaster-recovery scenarios |
+| Release engineering | Built an AI-assisted release tool from scratch to support biweekly production releases |
+| Mobility | Reduced Gojek One-Tap Ride Booking response latency to 10 milliseconds |
+| High-scale services | Operated services handling 10,000-20,000 requests per minute and payment flows at approximately 2,000 transactions per minute |
+| EV infrastructure | Enabled interoperability across 18 leading Indian charge-point operators using the Beckn Protocol |
+| Lending | Supported a loan-origination deployment serving approximately 800 branches and 3,000 users |
 
 ---
 
-<p align="center">
-  <img height="25" src="https://img.shields.io/github/stars/manendrapalsingh/manendrapalsingh?style=flat"/>
-  <img height="25" src="https://img.shields.io/github/forks/manendrapalsingh/manendrapalsingh?style=flat"/>
-  <img height="25" src="https://visitor-badge.laobi.icu/badge?page_id=manendrapalsingh.manendrapalsingh"/>
-  <img height="25" src="https://badges.frapsoft.com/os/v2/open-source.svg?v=103"/>
-</p>
+## `> stack --production`
+
+<div align="center">
+
+### `backend / distributed-systems`
+
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+
+### `cloud / platform / reliability`
+
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
+![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-844FBA?style=flat-square&logo=terraform&logoColor=white)
+![Helm](https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white)
+![Flux](https://img.shields.io/badge/Flux-5468FF?style=flat-square&logo=flux&logoColor=white)
+![Datadog](https://img.shields.io/badge/Datadog-632CA6?style=flat-square&logo=datadog&logoColor=white)
+![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-000000?style=flat-square&logo=opentelemetry&logoColor=white)
+
+### `data / security / ai-automation`
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=flat-square&logo=elasticsearch&logoColor=white)
+![RisingWave](https://img.shields.io/badge/RisingWave-00BFA5?style=flat-square)
+![OpenFGA](https://img.shields.io/badge/OpenFGA-6D28D9?style=flat-square)
+![Azure AI Foundry](https://img.shields.io/badge/Azure_AI_Foundry-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
+![AI Agents](https://img.shields.io/badge/AI_Agents-111827?style=flat-square)
+![Runbook Automation](https://img.shields.io/badge/Runbook_Automation-0F766E?style=flat-square)
+
+</div>
 
 ---
 
-✨ <i>"Code. Learn. Build. Repeat."</i> ✨
+## `> experience --timeline`
+
+| Period | Organization | Role |
+| --- | --- | --- |
+| Apr 2026 - Present | Alpheya | Senior Software Developer |
+| Sep 2025 - Apr 2026 | CoffeeBeans Consulting / NPCI | SDE II - Consultant |
+| Dec 2024 - Sep 2025 | CoffeeBeans Consulting / Gojek | Software Engineer - Consultant |
+| Aug 2022 - Dec 2024 | Sigma Infosolutions | Software Developer |
+
+---
+
+## `> opensource --contributions`
+
+- **[beckn-onix](https://github.com/beckn/beckn-onix)** - Network observability, Redis TLS support, Go runtime performance, and test reliability
+- **[ubc-ev-sandbox](https://github.com/bhim/ubc-ev-sandbox)** - EV sandbox development, schema validation, observability, Redis TLS, and release upgrades
+- **[Kestra](https://github.com/kestra-io/kestra/pull/15047)** - Production fix for the open-source orchestration platform
+
+---
+
+## `> github.activity --live`
+
+<div align="center">
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=manendrapalsingh&show_icons=true&hide_border=true&bg_color=07111f&title_color=5eead4&text_color=9fb0c5&icon_color=38bdf8)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=manendrapalsingh&layout=compact&hide_border=true&bg_color=07111f&title_color=5eead4&text_color=9fb0c5)
+
+![Contribution Graph](https://github-readme-activity-graph.vercel.app/graph?username=manendrapalsingh&theme=github-compact&hide_border=true)
+
+![Profile Views](https://komarev.com/ghpvc/?username=manendrapalsingh&style=for-the-badge&color=0e7490&label=PROFILE+SIGNALS)
+
+</div>
+
+---
+
+<div align="center">
+
+Open to conversations about backend engineering, platform reliability, distributed systems, and AI-assisted developer tooling.
+
+</div>

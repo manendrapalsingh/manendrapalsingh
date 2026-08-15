@@ -20,7 +20,7 @@ const Experience = () => {
       sx={{
         minHeight: '100vh',
         py: 10,
-        backgroundColor: 'background.default',
+        backgroundColor: 'rgba(7, 17, 31, 0.72)',
         position: 'relative',
         display: 'flex',
         alignItems: 'center',

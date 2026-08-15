@@ -4,41 +4,41 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#0ea5e9', // Sky blue
-      light: '#38bdf8',
+      main: '#38bdf8',
+      light: '#7dd3fc',
       dark: '#0284c7',
     },
     secondary: {
-      main: '#8b5cf6', // Purple
-      light: '#a78bfa',
-      dark: '#7c3aed',
+      main: '#5eead4',
+      light: '#99f6e4',
+      dark: '#0f766e',
     },
     background: {
-      default: '#0f172a', // Slate 900
-      paper: '#1e293b', // Slate 800
+      default: '#07111f',
+      paper: '#0d1b2d',
     },
     text: {
-      primary: '#f1f5f9', // Slate 100
-      secondary: '#cbd5e1', // Slate 300
+      primary: '#f8fafc',
+      secondary: '#9fb0c5',
     },
-    divider: '#334155', // Slate 700
+    divider: 'rgba(148, 163, 184, 0.18)',
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     h1: {
-      fontWeight: 700,
+      fontWeight: 800,
       fontSize: '3rem',
       lineHeight: 1.2,
-      letterSpacing: '-0.02em',
+      letterSpacing: '-0.045em',
       '@media (max-width:600px)': {
         fontSize: '2rem',
       },
     },
     h2: {
-      fontWeight: 700,
+      fontWeight: 750,
       fontSize: '2.5rem',
       lineHeight: 1.3,
-      letterSpacing: '-0.01em',
+      letterSpacing: '-0.035em',
       '@media (max-width:600px)': {
         fontSize: '1.75rem',
       },
@@ -79,14 +79,14 @@ const theme = createTheme({
   },
   spacing: 8,
   shape: {
-    borderRadius: 8,
+    borderRadius: 16,
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
           textTransform: 'none',
-          borderRadius: 8,
+          borderRadius: 999,
           padding: '10px 24px',
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         },
@@ -95,8 +95,9 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-          borderRadius: 12,
+          boxShadow: '0 18px 50px rgba(0,0,0,0.22)',
+          borderRadius: 20,
+          border: '1px solid rgba(148, 163, 184, 0.14)',
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         },
       },
@@ -114,6 +115,18 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundImage: 'none',
+        },
+      },
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        '::selection': {
+          backgroundColor: 'rgba(94, 234, 212, 0.28)',
+          color: '#f8fafc',
+        },
+        '*': {
+          scrollbarWidth: 'thin',
+          scrollbarColor: '#164e63 #07111f',
         },
       },
     },

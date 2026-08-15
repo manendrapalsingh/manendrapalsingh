@@ -20,14 +20,10 @@ const Footer = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       sx={{
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
+        position: 'relative',
         width: '100%',
-        zIndex: 1000,
-        backgroundColor: 'transparent',
-        py: 1,
+        backgroundColor: '#050c16',
+        py: 3,
         borderTop: '1px solid rgba(255, 255, 255, 0.1)',
         transition: 'all 0.3s ease',
         minHeight: 'auto',

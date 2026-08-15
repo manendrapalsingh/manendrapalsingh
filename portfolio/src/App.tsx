@@ -1,17 +1,33 @@
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline, Box, CircularProgress } from '@mui/material';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import theme from './theme';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
-import HeroAbout from './components/HeroAbout';
-import Experience from './components/Experience';
-import PortfolioShowcase from './components/PortfolioShowcase';
-import Contact from './components/Contact';
-import ProjectDetail from './components/ProjectDetail';
-import OpenSourceDetail from './components/OpenSourceDetail';
-import ExperienceDetail from './components/ExperienceDetail';
+import AnimatedBackdrop from './components/AnimatedBackdrop';
+
+const HeroAbout = lazy(() => import('./components/HeroAbout'));
+const Experience = lazy(() => import('./components/Experience'));
+const EngineeringJourney = lazy(() => import('./components/EngineeringJourney'));
+const PortfolioShowcase = lazy(() => import('./components/PortfolioShowcase'));
+const Contact = lazy(() => import('./components/Contact'));
+const GitHubActivity = lazy(() => import('./components/GitHubActivity'));
+const ProjectDetail = lazy(() => import('./components/ProjectDetail'));
+const OpenSourceDetail = lazy(() => import('./components/OpenSourceDetail'));
+const ExperienceDetail = lazy(() => import('./components/ExperienceDetail'));
+
+function LoadingFallback() {
+  return (
+    <Box
+      role="status"
+      aria-label="Loading portfolio content"
+      sx={{ minHeight: '40vh', display: 'grid', placeItems: 'center' }}
+    >
+      <CircularProgress />
+    </Box>
+  );
+}
 
 function HomePage() {
   useEffect(() => {
@@ -59,10 +75,14 @@ function HomePage() {
 
   return (
     <main style={{ overflowY: 'auto', height: '100vh' }}>
-      <HeroAbout />
-      <Experience />
-      <PortfolioShowcase />
-      <Contact />
+      <Suspense fallback={<LoadingFallback />}>
+        <HeroAbout />
+        <Experience />
+        <EngineeringJourney />
+        <PortfolioShowcase />
+        <GitHubActivity />
+        <Contact />
+      </Suspense>
     </main>
   );
 }
@@ -89,21 +109,23 @@ function AnimatedRoutes() {
           transition={pageTransition.transition}
           style={{ minHeight: '100vh', position: 'relative' }}
         >
-          <Routes>
-            <Route path="/manendrapalsingh" element={<HomePage />} />
-            <Route
-              path="/manendrapalsingh/project/:id"
-              element={<ProjectDetail />}
-            />
-            <Route
-              path="/manendrapalsingh/opensource/:id"
-              element={<OpenSourceDetail />}
-            />
-            <Route
-              path="/manendrapalsingh/experience/:id"
-              element={<ExperienceDetail />}
-            />
-          </Routes>
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
+              <Route path="/manendrapalsingh" element={<HomePage />} />
+              <Route
+                path="/manendrapalsingh/project/:id"
+                element={<ProjectDetail />}
+              />
+              <Route
+                path="/manendrapalsingh/opensource/:id"
+                element={<OpenSourceDetail />}
+              />
+              <Route
+                path="/manendrapalsingh/experience/:id"
+                element={<ExperienceDetail />}
+              />
+            </Routes>
+          </Suspense>
         </motion.div>
       </AnimatePresence>
       <Footer />
@@ -123,6 +145,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <AnimatedBackdrop />
       <BrowserRouter>
         <AnimatedRoutes />
       </BrowserRouter>

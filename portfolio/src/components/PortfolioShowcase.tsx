@@ -36,8 +36,7 @@ function TabPanel(props: TabPanelProps) {
 }
 
 const PortfolioShowcase = () => {
-  // Projects tab hidden - set to true when ready to show projects
-  const SHOW_PROJECTS_TAB = false;
+  const SHOW_PROJECTS_TAB = true;
   const [value, setValue] = useState(0);
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
@@ -45,7 +44,7 @@ const PortfolioShowcase = () => {
   };
 
   const skillCategories = {
-    'Backend & Architecture': ['Go', 'Java', 'JavaScript', 'TypeScript', 'Node.js', 'Express.js', 'REST API', 'Microservices', 'Event-Driven'],
+    'Backend & Architecture': ['Go', 'TypeScript', 'JavaScript', 'Java', 'REST APIs', 'Microservices', 'Event-Driven Architecture', 'Distributed Systems', 'System Design'],
     'Frontend': ['React', 'Redux', 'TypeScript', 'JavaScript', 'Material UI', 'TailwindCSS', 'HTML5', 'CSS3'],
     'Data, Infra & Observability': [
       'Kafka',
@@ -58,13 +57,19 @@ const PortfolioShowcase = () => {
       'Docker',
       'Kubernetes',
       'Helm',
+      'Terraform',
+      'Flux',
       'AWS',
+      'Microsoft Azure',
       'GCP',
       'CI/CD',
       'Prometheus',
       'Grafana',
+      'Datadog',
+      'OpenTelemetry',
     ],
-    'Tools & Platforms': ['Git', 'GitHub', 'Bitbucket', 'SonarQube', 'Postman', 'Swagger', 'Jest'],
+    'AI Engineering & Automation': ['Azure AI Foundry', 'Cody', 'AI Agents', 'LLM-Powered Tools', 'Incident Triage', 'Runbook Automation'],
+    'Security & Tools': ['OpenFGA', 'OAuth 2.0', 'OIDC', 'JWT', 'RBAC', 'Git', 'GitHub', 'SonarQube', 'Postman', 'Swagger/OpenAPI', 'Jest'],
   };
 
   return (
@@ -78,7 +83,7 @@ const PortfolioShowcase = () => {
       sx={{
         minHeight: '100vh',
         py: 10,
-        backgroundColor: 'background.default',
+        backgroundColor: 'rgba(7, 17, 31, 0.58)',
         display: 'flex',
         alignItems: 'center',
       }}
