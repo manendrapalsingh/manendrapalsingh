@@ -12,16 +12,23 @@ Reusable, ATS-friendly LaTeX resume for Senior Software Developer and Senior Bac
 
 ## Build
 
-Install [Tectonic](https://tectonic-typesetting.github.io/) and run:
+From the repository root, install [Tectonic](https://tectonic-typesetting.github.io/) and run:
 
 ```bash
+make
+```
+
+You can also build from this directory:
+
+```bash
+cd resume-latex
 make
 ```
 
 The generated file is:
 
 ```text
-output/Manendra_Pal_Singh_Resume.pdf
+resume-latex/output/Manendra_Pal_Singh_Resume.pdf
 ```
 
 ## Update the resume
@@ -32,4 +39,3 @@ output/Manendra_Pal_Singh_Resume.pdf
 4. Review both PDF pages before submitting an application.
 
 Keep bullets concise and use the pattern: accomplished X, measured by Y, by doing Z.
-

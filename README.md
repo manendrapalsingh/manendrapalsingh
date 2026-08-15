@@ -27,6 +27,26 @@
 
 ---
 
+## Resume
+
+The reusable LaTeX resume project is located in [`resume-latex/`](resume-latex/).
+
+From the repository root, install [Tectonic](https://tectonic-typesetting.github.io/) and run:
+
+```bash
+make
+```
+
+The generated PDF will be available at:
+
+```text
+resume-latex/output/Manendra_Pal_Singh_Resume.pdf
+```
+
+For resume source files, editing instructions, and the directory structure, see the [resume README](resume-latex/README.md).
+
+---
+
 <h2 align="center">🛠 Currently Working On</h2>
 
 <p align="center">
