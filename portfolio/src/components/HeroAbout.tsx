@@ -4,6 +4,61 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import DownloadIcon from '@mui/icons-material/Download';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
 
+const tickerTechnologies = [
+  { label: 'GO', url: 'https://go.dev/' },
+  { label: 'TYPESCRIPT', url: 'https://www.typescriptlang.org/' },
+  { label: 'JAVASCRIPT', url: 'https://developer.mozilla.org/docs/Web/JavaScript' },
+  { label: 'JAVA', url: 'https://www.java.com/' },
+  { label: 'REST APIS', url: 'https://developer.mozilla.org/docs/Glossary/REST' },
+  { label: 'MICROSERVICES', url: 'https://microservices.io/' },
+  { label: 'EVENT-DRIVEN ARCHITECTURE', url: 'https://aws.amazon.com/event-driven-architecture/' },
+  { label: 'DISTRIBUTED SYSTEMS', url: 'https://en.wikipedia.org/wiki/Distributed_computing' },
+  { label: 'SYSTEM DESIGN', url: 'https://en.wikipedia.org/wiki/Systems_design' },
+  { label: 'REACT', url: 'https://react.dev/' },
+  { label: 'REDUX', url: 'https://redux.js.org/' },
+  { label: 'MATERIAL UI', url: 'https://mui.com/' },
+  { label: 'TAILWIND CSS', url: 'https://tailwindcss.com/' },
+  { label: 'HTML5', url: 'https://developer.mozilla.org/docs/Web/HTML' },
+  { label: 'CSS3', url: 'https://developer.mozilla.org/docs/Web/CSS' },
+  { label: 'KAFKA', url: 'https://kafka.apache.org/' },
+  { label: 'RABBITMQ', url: 'https://www.rabbitmq.com/' },
+  { label: 'REDIS', url: 'https://redis.io/' },
+  { label: 'POSTGRESQL', url: 'https://www.postgresql.org/' },
+  { label: 'POSTGIS', url: 'https://postgis.net/' },
+  { label: 'MONGODB', url: 'https://www.mongodb.com/' },
+  { label: 'SQL', url: 'https://en.wikipedia.org/wiki/SQL' },
+  { label: 'DOCKER', url: 'https://www.docker.com/' },
+  { label: 'KUBERNETES', url: 'https://kubernetes.io/' },
+  { label: 'HELM', url: 'https://helm.sh/' },
+  { label: 'TERRAFORM', url: 'https://developer.hashicorp.com/terraform' },
+  { label: 'FLUX', url: 'https://fluxcd.io/' },
+  { label: 'AWS', url: 'https://aws.amazon.com/' },
+  { label: 'MICROSOFT AZURE', url: 'https://azure.microsoft.com/' },
+  { label: 'GCP', url: 'https://cloud.google.com/' },
+  { label: 'CI/CD', url: 'https://github.com/resources/articles/devops/ci-cd' },
+  { label: 'PROMETHEUS', url: 'https://prometheus.io/' },
+  { label: 'GRAFANA', url: 'https://grafana.com/' },
+  { label: 'DATADOG', url: 'https://www.datadoghq.com/' },
+  { label: 'OPENTELEMETRY', url: 'https://opentelemetry.io/' },
+  { label: 'AZURE AI FOUNDRY', url: 'https://azure.microsoft.com/products/ai-foundry/' },
+  { label: 'CODY', url: 'https://meetcody.ai/' },
+  { label: 'AI AGENTS', url: 'https://en.wikipedia.org/wiki/Intelligent_agent' },
+  { label: 'LLM-POWERED TOOLS', url: 'https://en.wikipedia.org/wiki/Large_language_model' },
+  { label: 'INCIDENT TRIAGE', url: 'https://sre.google/sre-book/managing-incidents/' },
+  { label: 'RUNBOOK AUTOMATION', url: 'https://sre.google/workbook/incident-response/' },
+  { label: 'OPENFGA', url: 'https://openfga.dev/' },
+  { label: 'OAUTH 2.0', url: 'https://oauth.net/2/' },
+  { label: 'OIDC', url: 'https://openid.net/developers/how-connect-works/' },
+  { label: 'JWT', url: 'https://jwt.io/' },
+  { label: 'RBAC', url: 'https://en.wikipedia.org/wiki/Role-based_access_control' },
+  { label: 'GIT', url: 'https://git-scm.com/' },
+  { label: 'GITHUB', url: 'https://github.com/' },
+  { label: 'SONARQUBE', url: 'https://www.sonarsource.com/products/sonarqube/' },
+  { label: 'POSTMAN', url: 'https://www.postman.com/' },
+  { label: 'SWAGGER / OPENAPI', url: 'https://swagger.io/specification/' },
+  { label: 'JEST', url: 'https://jestjs.io/' },
+];
+
 const HeroAbout = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -216,7 +271,7 @@ const HeroAbout = () => {
                       transition: 'all 0.3s ease',
                     }}
                   >
-                    Download CV
+                    Resume
                   </Button>
                 </motion.div>
               </motion.div>
@@ -263,19 +318,39 @@ const HeroAbout = () => {
           sx={{
             display: 'flex',
             width: 'max-content',
-            gap: 5,
             whiteSpace: 'nowrap',
-            animation: 'techTicker 30s linear infinite',
+            animation: 'techTicker 120s linear infinite',
             willChange: 'transform',
+            '&:hover': { animationPlayState: 'paused' },
             '@keyframes techTicker': { to: { transform: 'translate3d(-50%, 0, 0)' } },
             '@media (prefers-reduced-motion: reduce)': { animation: 'none', transform: 'none' },
           }}
         >
-          {[...Array(2)].flatMap((_, copy) => ['GO', 'TYPESCRIPT', 'KUBERNETES', 'AZURE', 'TERRAFORM', 'FLUX', 'DATADOG', 'OPENFGA'].map((tech) => (
-            <Typography key={`${copy}-${tech}`} sx={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontSize: '.72rem', letterSpacing: '.16em', color: 'text.secondary' }}>
-              <Box component="span" sx={{ color: 'secondary.main', mr: 1 }}>◆</Box>{tech}
-            </Typography>
-          )))}
+          {[0, 1].map((copy) => (
+            <Box key={copy} aria-hidden={copy === 1} sx={{ display: 'flex', flexShrink: 0, gap: 5, pr: 5 }}>
+              {tickerTechnologies.map(({ label, url }) => (
+                <Typography
+                  key={`${copy}-${label}`}
+                  component="a"
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={copy === 1 ? -1 : 0}
+                  sx={{
+                    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+                    fontSize: '.72rem',
+                    letterSpacing: '.16em',
+                    color: 'text.secondary',
+                    textDecoration: 'none',
+                    transition: 'color .2s ease',
+                    '&:hover, &:focus-visible': { color: 'secondary.main' },
+                  }}
+                >
+                  <Box component="span" sx={{ color: 'secondary.main', mr: 1 }}>◆</Box>{label}
+                </Typography>
+              ))}
+            </Box>
+          ))}
         </Box>
       </Box>
     </Box>

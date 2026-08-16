@@ -99,7 +99,7 @@ const About = () => {
                         },
                       }}
                     >
-                      Download CV
+                      Resume
                     </Button>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
